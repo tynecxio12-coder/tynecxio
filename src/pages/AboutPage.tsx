@@ -1,13 +1,22 @@
 import SectionWrapper from "@/components/SectionWrapper";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Lightbulb, Heart, Users } from "lucide-react";
+import { ArrowRight, Globe, Lightbulb, Heart, Users, Target, Zap, Shield, Layers } from "lucide-react";
+import { motion } from "framer-motion";
 
 const values = [
-  { icon: Lightbulb, title: "Design-Led Thinking", desc: "Every decision starts with the user. We blend creative intuition with data-driven strategy." },
-  { icon: Heart, title: "Craft & Quality", desc: "We sweat the details. Every pixel, interaction, and line of code is held to the highest standard." },
-  { icon: Globe, title: "Global Perspective", desc: "Working with international clients gives us diverse insight into markets, cultures, and user behaviors." },
-  { icon: Users, title: "Partnership Mindset", desc: "We don't just build for clients — we build with them. Your success is our success." },
+  { icon: Lightbulb, title: "Design-Led Thinking", desc: "Every decision starts with the user. We blend creative intuition with data-driven strategy to create products that truly resonate." },
+  { icon: Heart, title: "Craft & Quality", desc: "We sweat the details. Every pixel, interaction, and line of code is held to the highest standard of excellence." },
+  { icon: Globe, title: "Global Perspective", desc: "Working with international clients gives us diverse insight into markets, cultures, and user behaviors across the world." },
+  { icon: Users, title: "Partnership Mindset", desc: "We don't just build for clients — we build with them. Your success is our success, and we're invested in your growth." },
+];
+
+const whyChoose = [
+  { icon: Target, title: "Design with business & conversion in mind" },
+  { icon: Zap, title: "Startup-friendly process and timelines" },
+  { icon: Shield, title: "Clear communication & transparent pricing" },
+  { icon: Globe, title: "Remote-friendly, international-ready workflow" },
+  { icon: Layers, title: "Strategy + Design + Development + Growth in one place" },
 ];
 
 const AboutPage = () => {
@@ -21,7 +30,7 @@ const AboutPage = () => {
             <span className="text-gradient-gold">Ambitious Brands</span>
           </h1>
           <p className="text-muted-foreground body-lg max-w-2xl">
-            TynecXio is a product-focused digital studio that blends design, development, and marketing to build meaningful, conversion-focused digital experiences for startups and modern businesses.
+            We're a product-focused digital studio that blends design, development, and marketing to build meaningful, conversion-focused digital experiences for startups and modern businesses.
           </p>
         </div>
       </SectionWrapper>
@@ -66,15 +75,40 @@ const AboutPage = () => {
         </div>
       </SectionWrapper>
 
-      {/* Values */}
+      {/* Why Choose TynecXio */}
       <SectionWrapper className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto section-padding">
+          <div className="label-text mb-4">Why Work With Us</div>
+          <h2 className="heading-lg mb-12 max-w-xl">
+            Why Choose <span className="text-gradient-gold">TynecXio?</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {whyChoose.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="flex items-center gap-4 bg-card border border-border rounded-xl p-5 hover:border-primary/20 transition-all"
+              >
+                <item.icon size={22} className="text-primary shrink-0" />
+                <span className="font-display font-medium text-sm text-foreground">{item.title}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Values */}
+      <SectionWrapper className="py-24 md:py-32 bg-gradient-surface">
         <div className="max-w-7xl mx-auto section-padding">
           <div className="label-text mb-4">Our Values</div>
           <h2 className="heading-lg mb-16 max-w-xl">
             What Drives <span className="text-gradient-gold">Everything We Do</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {values.map((v, i) => (
+            {values.map((v) => (
               <div key={v.title} className="bg-card border border-border rounded-xl p-8 hover:border-primary/20 transition-all">
                 <v.icon size={28} className="text-primary mb-4" />
                 <h3 className="font-display font-semibold text-lg mb-3">{v.title}</h3>
@@ -92,7 +126,7 @@ const AboutPage = () => {
             Ready to Work <span className="text-gradient-gold">Together?</span>
           </h2>
           <p className="text-muted-foreground body-md mb-10">
-            Let's discuss how we can help bring your vision to life.
+            Let's discuss how we can help bring your vision to life with clarity and confidence.
           </p>
           <Link to="/contact">
             <Button variant="hero" size="xl" className="group">

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "Services", path: "/services" },
+  { label: "Pricing", path: "/pricing" },
   { label: "Portfolio", path: "/portfolio" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
@@ -77,7 +78,7 @@ const Navbar = () => {
           ))}
           <Link to="/contact" onClick={handleNavClick("/contact")}>
             <Button variant="hero" size="default">
-              Book a Call
+              Get a Free Call
             </Button>
           </Link>
         </div>
@@ -114,7 +115,7 @@ const Navbar = () => {
               ))}
               <Link to="/contact" onClick={handleNavClick("/contact")}>
                 <Button variant="hero" className="mt-2 w-full">
-                  Book a Call
+                  Get a Free Call
                 </Button>
               </Link>
             </div>

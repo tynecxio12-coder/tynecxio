@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
 
 const footerLinks = {
   Studio: [
+    { label: "Home", path: "/" },
     { label: "Services", path: "/services" },
+    { label: "Packages & Pricing", path: "/pricing" },
     { label: "Portfolio", path: "/portfolio" },
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
@@ -12,13 +14,16 @@ const footerLinks = {
     { label: "UI/UX Design", path: "/services" },
     { label: "Web Development", path: "/services" },
     { label: "E-Commerce", path: "/services" },
-    { label: "Branding", path: "/services" },
+    { label: "Mobile App UI", path: "/services" },
+    { label: "Branding & Identity", path: "/services" },
+    { label: "Digital Marketing", path: "/services" },
   ],
   Connect: [
-    { label: "LinkedIn", path: "#", external: true },
-    { label: "Dribbble", path: "#", external: true },
-    { label: "Behance", path: "#", external: true },
-    { label: "Instagram", path: "#", external: true },
+    { label: "LinkedIn", path: "https://linkedin.com/company/tynecxio", external: true },
+    { label: "Instagram", path: "https://instagram.com/tynecxio", external: true },
+    { label: "Dribbble", path: "https://dribbble.com/tynecxio", external: true },
+    { label: "Behance", path: "https://behance.net/tynecxio", external: true },
+    { label: "WhatsApp", path: "https://wa.me/message/tynecxio", external: true },
   ],
 };
 
@@ -34,8 +39,26 @@ const Footer = () => {
               <span className="text-gradient-gold">Xio</span>
             </Link>
             <p className="text-muted-foreground body-md mt-4 max-w-xs">
-              A digital product & brand experience studio helping startups and modern businesses design, build, and grow.
+              A product-focused digital studio that blends design, development, and marketing to build meaningful, conversion-focused digital experiences.
             </p>
+            <div className="mt-6 space-y-2">
+              <a
+                href="mailto:hello@tynecxio.com"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail size={14} />
+                hello@tynecxio.com
+              </a>
+              <a
+                href="https://wa.me/message/tynecxio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                <MessageCircle size={14} />
+                WhatsApp
+              </a>
+            </div>
           </div>
 
           {/* Links */}
@@ -47,7 +70,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    {link.external ? (
+                    {"external" in link && link.external ? (
                       <a
                         href={link.path}
                         target="_blank"
@@ -77,7 +100,7 @@ const Footer = () => {
             © {new Date().getFullYear()} TynecXio. All rights reserved.
           </p>
           <p className="text-muted-foreground text-xs">
-            Designed & Built with precision.
+            Design · Development · Growth — All in one place.
           </p>
         </div>
       </div>

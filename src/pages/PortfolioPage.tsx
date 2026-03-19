@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import SectionWrapper from "@/components/SectionWrapper";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 const projects = [
   {
@@ -41,6 +43,14 @@ const projects = [
   },
 ];
 
+const focusAreas = [
+  "SaaS dashboards & tools",
+  "Startup landing pages",
+  "Founder & personal brand sites",
+  "Service-business websites",
+  "Mobile app UI & prototypes",
+];
+
 const PortfolioPage = () => {
   return (
     <div className="min-h-screen bg-background pt-28">
@@ -56,7 +66,7 @@ const PortfolioPage = () => {
         </div>
       </SectionWrapper>
 
-      <div className="max-w-7xl mx-auto section-padding pb-32">
+      <div className="max-w-7xl mx-auto section-padding pb-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
             <motion.div
@@ -89,6 +99,46 @@ const PortfolioPage = () => {
           ))}
         </div>
       </div>
+
+      {/* Focus Areas */}
+      <SectionWrapper className="py-24 bg-gradient-surface">
+        <div className="max-w-7xl mx-auto section-padding">
+          <div className="label-text mb-4">Recent Work & Focus Areas</div>
+          <h2 className="heading-lg mb-8 max-w-xl">
+            We Love <span className="text-gradient-gold">Working On</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+            {focusAreas.map((area) => (
+              <div key={area} className="bg-card border border-border rounded-xl p-5 text-sm font-display font-medium text-foreground">
+                {area}
+              </div>
+            ))}
+          </div>
+          <Link to="/contact">
+            <Button variant="hero-outline" size="lg" className="group">
+              Request Portfolio Samples
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+        </div>
+      </SectionWrapper>
+
+      {/* CTA */}
+      <SectionWrapper className="py-24 border-t border-border">
+        <div className="max-w-3xl mx-auto section-padding text-center">
+          <h2 className="heading-lg mb-6">
+            Ready to Build Your <span className="text-gradient-gold">Next Project?</span>
+          </h2>
+          <p className="text-muted-foreground body-md mb-10">
+            Tell us about your idea — we'll come back with a clear plan and proposal.
+          </p>
+          <Link to="/contact">
+            <Button variant="hero" size="xl" className="group">
+              Start a Project <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+        </div>
+      </SectionWrapper>
     </div>
   );
 };

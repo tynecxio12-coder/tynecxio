@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Clock, Send, CheckCircle2, MessageCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactPage = () => {
@@ -26,7 +26,6 @@ const ContactPage = () => {
       return;
     }
     setLoading(true);
-    // Simulate submission
     await new Promise((r) => setTimeout(r, 1500));
     setLoading(false);
     setSubmitted(true);
@@ -40,13 +39,30 @@ const ContactPage = () => {
           <div className="label-text mb-4">Get In Touch</div>
           <h1 className="heading-xl mb-6 max-w-3xl">
             Let's Build Something{" "}
-            <span className="text-gradient-gold">Great Together</span>
+            <span className="text-gradient-gold">Meaningful Together</span>
           </h1>
           <p className="text-muted-foreground body-lg max-w-2xl">
-            Tell us about your project. We'll respond with a clear plan and proposal within 48 hours.
+            Whether you're launching a startup, redesigning your brand, or scaling an existing product — we help you move fast with clarity and confidence. We reply within 24–48 hours.
           </p>
         </div>
       </SectionWrapper>
+
+      {/* Trust Points */}
+      <div className="max-w-7xl mx-auto section-padding pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            "Fast turnaround & startup-friendly process",
+            "Design focused on conversion & growth",
+            "Remote collaboration, global clients",
+            "Clear communication & honest pricing",
+          ].map((point) => (
+            <div key={point} className="flex items-start gap-2 text-sm text-muted-foreground">
+              <CheckCircle2 size={14} className="text-primary shrink-0 mt-0.5" />
+              {point}
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto section-padding pb-32">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -92,18 +108,18 @@ const ContactPage = () => {
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="uiux">UI/UX Design</SelectItem>
-                        <SelectItem value="web">Website / Web App</SelectItem>
-                        <SelectItem value="ecommerce">E-Commerce</SelectItem>
+                        <SelectItem value="general">General / Not sure</SelectItem>
+                        <SelectItem value="uiux">UI & UX Design</SelectItem>
+                        <SelectItem value="web">Website / Web App Development</SelectItem>
+                        <SelectItem value="ecommerce">E-Commerce Store</SelectItem>
                         <SelectItem value="mobile">Mobile App UI</SelectItem>
-                        <SelectItem value="branding">Brand Identity</SelectItem>
-                        <SelectItem value="growth">Digital Marketing</SelectItem>
-                        <SelectItem value="other">Not Sure Yet</SelectItem>
+                        <SelectItem value="branding">Brand Identity & Graphics</SelectItem>
+                        <SelectItem value="growth">Digital Marketing & Growth</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">Budget</label>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Budget (optional)</label>
                     <Select onValueChange={(v) => setForm({ ...form, budget: v })}>
                       <SelectTrigger className="bg-secondary border-border h-12">
                         <SelectValue placeholder="Select budget range" />
@@ -112,9 +128,9 @@ const ContactPage = () => {
                         <SelectItem value="70-100">$70 – $100</SelectItem>
                         <SelectItem value="100-200">$100 – $200</SelectItem>
                         <SelectItem value="200-300">$200 – $300</SelectItem>
-                        <SelectItem value="300-500">$300 – $500</SelectItem>
-                        <SelectItem value="500+">$500+</SelectItem>
-                        <SelectItem value="notsure">Not Sure Yet</SelectItem>
+                        <SelectItem value="300-400">$300 – $400</SelectItem>
+                        <SelectItem value="400-500">$400 – $500</SelectItem>
+                        <SelectItem value="notsure">Not sure yet</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -143,7 +159,21 @@ const ContactPage = () => {
             <div className="bg-card border border-border rounded-xl p-6">
               <Mail size={22} className="text-primary mb-3" />
               <h4 className="font-display font-semibold text-sm mb-1">Email Us</h4>
-              <p className="text-muted-foreground text-sm">hello@tynecxio.com</p>
+              <a href="mailto:hello@tynecxio.com" className="text-muted-foreground text-sm hover:text-primary transition-colors">
+                hello@tynecxio.com
+              </a>
+            </div>
+            <div className="bg-card border border-border rounded-xl p-6">
+              <MessageCircle size={22} className="text-primary mb-3" />
+              <h4 className="font-display font-semibold text-sm mb-1">WhatsApp</h4>
+              <a
+                href="https://wa.me/message/tynecxio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground text-sm hover:text-primary transition-colors"
+              >
+                Chat with us on WhatsApp
+              </a>
             </div>
             <div className="bg-card border border-border rounded-xl p-6">
               <Clock size={22} className="text-primary mb-3" />
@@ -159,7 +189,7 @@ const ContactPage = () => {
             <div className="bg-card border border-primary/20 rounded-xl p-6 glow-gold">
               <h4 className="font-display font-semibold text-sm mb-2 text-primary">Free Strategy Call</h4>
               <p className="text-muted-foreground text-xs leading-relaxed">
-                Not sure where to start? Book a free 30-minute discovery call and we'll help you map out the best approach for your project.
+                Not sure where to start? Book a free discovery call and we'll help you map out the best approach for your project.
               </p>
             </div>
           </div>

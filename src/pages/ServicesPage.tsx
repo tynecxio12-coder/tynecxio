@@ -10,45 +10,99 @@ import {
 const allServices = [
   {
     icon: Palette,
-    title: "UI/UX Design",
+    title: "UI/UX Design for Web & Mobile Apps",
     subtitle: "Web & Mobile Products",
     desc: "We create user-centered interfaces that combine beauty with functionality. From user research and wireframes to high-fidelity mockups and interactive prototypes — every screen is designed to delight users and drive results.",
-    features: ["User research & journey mapping", "Wireframes & user flows", "Modern UI design system", "Up to 20 screens/pages", "Developer-ready handoff (Figma)", "Responsive design", "Usability testing"],
+    features: [
+      "User research, user flows & wireframes",
+      "Modern interface design for SaaS, dashboards & tools",
+      "Mobile app UI for Android / iOS",
+      "Prototypes & usability-focused layouts",
+      "Developer-ready handoff (Figma)",
+      "Responsive design for web & mobile",
+      "Usability testing & design improvements",
+    ],
+    outcome: "Clean, intuitive, user-friendly digital products.",
   },
   {
     icon: Globe,
-    title: "Website & Web App Development",
+    title: "Website & Web Application Development",
     subtitle: "Business & Startup Websites",
     desc: "High-performance websites and web applications built with modern technology. Fast, secure, responsive, and SEO-optimized — designed to build trust and convert visitors into customers.",
-    features: ["Custom website design (up to 5 pages)", "Mobile & tablet responsive", "Conversion-focused sections", "On-page SEO structure", "Contact form & CTA integration", "Speed optimization", "Deployment support"],
+    features: [
+      "Business & portfolio websites",
+      "Landing pages for startups & launches",
+      "Custom frontend development",
+      "Fast, secure, responsive, SEO-friendly builds",
+      "Contact form & CTA integration",
+      "Speed & performance optimization",
+      "Deployment support",
+    ],
+    outcome: "Professional online presence that builds trust.",
   },
   {
     icon: ShoppingCart,
-    title: "E-Commerce Solutions",
+    title: "E-Commerce Website & Online Store Development",
     subtitle: "Online Stores & Platforms",
     desc: "Everything you need to start selling online. From product-first storefront design to secure checkout flows and payment integrations — we build stores that are ready to generate revenue from day one.",
-    features: ["Custom storefront design", "Product & category pages", "Cart & checkout flow", "Payment gateway integration", "Product upload setup", "SEO-friendly structure", "Analytics & tracking"],
+    features: [
+      "Modern product-first storefront design",
+      "Secure checkout & payment integrations",
+      "Conversion-optimized product pages",
+      "Product & category page layouts",
+      "Cart & checkout flow",
+      "SEO-friendly structure",
+      "Basic analytics & inventory setup",
+    ],
+    outcome: "A store ready to sell from day one.",
   },
   {
     icon: Smartphone,
     title: "Mobile App UI Design",
     subtitle: "iOS & Android Interfaces",
     desc: "Beautiful mobile app interfaces that feel smooth, modern, and intuitive. We design complete screen flows, user journeys, and handoff-ready assets that development teams love to work with.",
-    features: ["App user flow & planning", "Up to 25 mobile screens", "iOS & Android-ready UI", "Design system", "Clickable prototype", "Developer handoff"],
+    features: [
+      "Screens, flows, and user journeys",
+      "Clean, modern, consistent layouts",
+      "Up to 25 mobile app screens",
+      "iOS & Android-ready UI design",
+      "Design system (colors, typography, icons)",
+      "Clickable prototype",
+      "Handoff-ready designs for developers",
+    ],
+    outcome: "App interfaces users love to interact with.",
   },
   {
     icon: PenTool,
-    title: "Brand Identity & Graphics",
+    title: "Brand Identity & Graphic Design",
     subtitle: "Visual Identity Systems",
     desc: "A strong brand is your most valuable business asset. We create distinctive visual identities including logos, color systems, typography, and brand guidelines that position you for premium markets.",
-    features: ["Logo design or refinement", "Brand color & typography", "Social media templates", "Marketing graphics", "Brand strategy consulting", "Brand guideline PDF", "Revisions & final export"],
+    features: [
+      "Logo + identity system",
+      "Color palette & typography",
+      "Social media & web graphics",
+      "Marketing visuals & brand assets",
+      "Brand strategy consulting",
+      "Brand guideline PDF",
+      "Revisions & final export",
+    ],
+    outcome: "A brand look that feels professional and memorable.",
   },
   {
     icon: TrendingUp,
-    title: "Digital Growth Strategy",
+    title: "Modern Digital Marketing & Growth Support",
     subtitle: "Marketing & Optimization",
     desc: "Monthly growth-focused digital marketing support. From paid ads and SEO to content strategy and funnel optimization — we help you scale with data-driven decisions and measurable results.",
-    features: ["Paid ads management", "SEO strategy & optimization", "Content & campaign planning", "Landing page optimization", "Performance tracking", "Monthly strategy consultation"],
+    features: [
+      "Launch & growth strategy",
+      "Content & campaign direction",
+      "Basic ad strategy & funnel guidance",
+      "Paid ads management (Google & Meta)",
+      "SEO strategy & optimization",
+      "Landing page & funnel optimization",
+      "Consultation & performance review",
+    ],
+    outcome: "Visibility, awareness, and smarter scaling.",
   },
 ];
 
@@ -70,7 +124,7 @@ const ServicesPage = () => {
       </SectionWrapper>
 
       {/* Services Grid */}
-      <div className="max-w-7xl mx-auto section-padding pb-32 space-y-12">
+      <div className="max-w-7xl mx-auto section-padding pb-24 space-y-12">
         {allServices.map((service, i) => (
           <SectionWrapper key={service.title} delay={i * 0.05}>
             <div className="bg-card border border-border rounded-2xl p-8 md:p-12 hover:border-primary/20 transition-all duration-500 group">
@@ -79,7 +133,8 @@ const ServicesPage = () => {
                   <service.icon size={32} className="text-primary mb-5" />
                   <div className="text-muted-foreground text-xs uppercase tracking-widest mb-2">{service.subtitle}</div>
                   <h2 className="heading-md mb-4">{service.title}</h2>
-                  <p className="text-muted-foreground body-md mb-6">{service.desc}</p>
+                  <p className="text-muted-foreground body-md mb-4">{service.desc}</p>
+                  <p className="text-primary text-sm font-medium mb-6">Outcome: {service.outcome}</p>
                   <Link to="/contact">
                     <Button variant="hero" size="lg" className="group/btn">
                       Get Started <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
@@ -103,6 +158,25 @@ const ServicesPage = () => {
         ))}
       </div>
 
+      {/* Packages CTA */}
+      <SectionWrapper className="py-24 bg-gradient-surface">
+        <div className="max-w-3xl mx-auto section-padding text-center">
+          <div className="label-text mb-4">Service Packages</div>
+          <h2 className="heading-lg mb-6">
+            View Our <span className="text-gradient-gold">Package Pricing</span>
+          </h2>
+          <p className="text-muted-foreground body-md mb-10">
+            We offer ready-made packages for every service — with transparent pricing and clear deliverables.
+          </p>
+          <Link to="/pricing">
+            <Button variant="hero" size="xl" className="group">
+              View Packages & Pricing
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </Link>
+        </div>
+      </SectionWrapper>
+
       {/* CTA */}
       <SectionWrapper className="py-24 border-t border-border">
         <div className="max-w-3xl mx-auto section-padding text-center">
@@ -113,7 +187,7 @@ const ServicesPage = () => {
             Tell us about your project — we'll guide you to the right plan with a clear proposal.
           </p>
           <Link to="/contact">
-            <Button variant="hero" size="xl">Book a Free Strategy Call</Button>
+            <Button variant="hero" size="xl">Tell Us About Your Project</Button>
           </Link>
         </div>
       </SectionWrapper>

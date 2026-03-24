@@ -255,7 +255,7 @@ const ContactPage = () => {
                 href="mailto:career@tynecxio.com"
                 className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                hello@tynecxio.com
+                career@tynecxio.com
               </a>
             </div>
 

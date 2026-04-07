@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Mail, MessageCircle } from "lucide-react";
-import { FaLinkedinIn, FaInstagram, FaDribbble, FaBehance, FaFacebookF, FaYoutube, FaTiktok, FaPinterest } from "react-icons/fa";
+import { FaLinkedinIn, FaInstagram, FaFacebookF, FaYoutube, FaTiktok, FaPinterest } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 import logo from "@/assets/tynecxio-logo.png";
 
@@ -25,8 +25,6 @@ const footerLinks = {
 const socialLinks = [
   { icon: FaLinkedinIn, href: "https://linkedin.com/company/tynecxio", label: "LinkedIn" },
   { icon: FaInstagram, href: "https://instagram.com/tynecxio", label: "Instagram" },
-  { icon: FaDribbble, href: "https://dribbble.com/tynecxio", label: "Dribbble" },
-  { icon: FaBehance, href: "https://behance.net/tynecxio", label: "Behance" },
   { icon: FaThreads, href: "https://www.threads.net/@tynecxio", label: "Threads" },
   { icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=61585890573503", label: "Facebook" },
   { icon: FaYoutube, href: "https://www.youtube.com/@TynecXio", label: "YouTube" },

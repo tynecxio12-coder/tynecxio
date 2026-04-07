@@ -58,7 +58,7 @@ const Footer = () => {
                 career@tynecxio.com
               </a>
               <a
-                href="https://wa.me/message/tynecxio"
+                href="https://wa.me/8801568551389"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"

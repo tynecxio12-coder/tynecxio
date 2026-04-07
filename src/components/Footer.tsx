@@ -58,7 +58,7 @@ const Footer = () => {
                 career@tynecxio.com
               </a>
               <a
-                href="https://wa.me/8801568551389"
+                href="https://wa.me/8801568551389?text=Hi%20TynecXio%2C%20I%20want%20to%20know%20more%20about%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
